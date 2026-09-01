@@ -4,47 +4,198 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lunira — a calmer way to manage your money</title>
-<meta name="description" content="Lunira is a lifestyle budgeting app for iOS. Everything stays on your device.">
+<meta name="description" content="A budgeting app for iPhone that tells you where you stand and then stops talking. Everything stays on your device.">
+<meta name="theme-color" content="#fdf4f3">
+<link rel="icon" href="./favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="./img/icon.png">
+
+<meta property="og:title" content="Lunira — a calmer way to manage your money">
+<meta property="og:description" content="$90 over plan. That's the whole sentence.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://jlik2002.github.io/lunira-site/img/icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Karla:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<main class="wrap">
 
-  <a class="brand" href="./">Lunira</a>
-  <p class="tagline">A calmer way to manage your money.</p>
-
-  <h1>Budgeting that never makes you feel bad about a coffee.</h1>
-
-  <p class="lede">
-    Lunira is a lifestyle budgeting app for iOS. You track what comes in and
-    what goes out, set monthly budgets by category, and save toward the things
-    you actually want — with a companion that tells you where you stand
-    instead of grading you for it.
-  </p>
-
-  <div class="card">
-    <p><strong>Everything stays on your device.</strong></p>
-    <p>
-      There is no account to create and no server to sign in to. Lunira has no
-      backend at all: your name, your income, your spending and your goals are
-      written to your phone's local storage and never leave it. We don't
-      collect analytics, we don't run ads, and there is nothing for us to see
-      even if we wanted to.
-    </p>
-  </div>
-
-  <nav class="nav">
-    <a href="./privacy/">Privacy Policy</a>
-    <a href="./terms/">Terms of Use</a>
-    <a href="mailto:zhulikov.support@gmail.com">Support</a>
+<header class="shell masthead">
+  <a class="wordmark" href="./">
+    <img src="./img/icon.png" alt="" width="26" height="26">
+    Lunira
+  </a>
+  <nav>
+    <a href="./privacy/">Privacy</a>
+    <a href="./terms/">Terms</a>
   </nav>
+</header>
 
-  <footer>
-    <p>
-      Questions? <a href="mailto:zhulikov.support@gmail.com">zhulikov.support@gmail.com</a>
+<main>
+
+  <!-- ── hero ──────────────────────────────────────────────── -->
+  <section class="shell hero">
+    <div>
+      <p class="badge">Coming soon to iPhone</p>
+
+      <h1 class="statement">
+        <span class="amount">$90</span> over plan.
+        <span class="quiet">That&rsquo;s the whole sentence.</span>
+      </h1>
+
+      <p class="lede">
+        Most budgeting apps would put an exclamation mark after that and then
+        tell you what you did wrong. Lunira gives you the number and stops.
+        You already know how you feel about the dinner.
+      </p>
+
+      <div class="cta-row">
+        <!-- Placeholder link. Swap for the real App Store product URL at launch,
+             and replace this button with Apple's official badge — Apple's
+             marketing guidelines require it once the app is listed. -->
+        <a class="cta" href="https://www.apple.com/app-store/">
+          Download on the App&nbsp;Store
+        </a>
+        <p class="cta-aside">Not out yet &mdash; this opens the App&nbsp;Store for now.</p>
+      </div>
+    </div>
+
+    <div class="hero-figure">
+      <img src="./img/mascot-hero.png" alt="Lunira, a small round companion with pink cheeks" width="480" height="480">
+    </div>
+  </section>
+
+  <!-- ── the signature: one fact, two voices ───────────────── -->
+  <section class="shell voices">
+    <p class="eyebrow">The difference</p>
+    <h2 class="section-head">The same $90, said two ways.</h2>
+    <p class="section-note">
+      This is the whole argument. Everything after it is just a budgeting app.
     </p>
-  </footer>
+
+    <div class="voices-grid">
+
+      <div class="voice voice--loud reveal">
+        <p class="voice-label">Every other budgeting app</p>
+        <p class="voice-shout">You overspent by $90</p>
+        <p class="voice-scold">
+          You&rsquo;ve blown through your Dining Out budget with 2 days still to
+          go. Let&rsquo;s do better next month.
+        </p>
+        <span class="voice-streak">12-day streak lost</span>
+      </div>
+
+      <div class="voice voice--calm reveal delay">
+        <p class="voice-label">Lunira</p>
+        <div class="voice-card">
+          <img src="./img/card-over.png" alt="Dining Out. $340 of $250. $90 over plan. 9 transactions, 2 days remaining." width="1560" height="448">
+        </div>
+        <p class="voice-after">
+          That&rsquo;s it. No exclamation mark, no broken streak, no
+          &ldquo;let&rsquo;s do better&rdquo;. <strong>$90 over plan</strong>,
+          and the two days you have left to decide what to do about it.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── proof ─────────────────────────────────────────────── -->
+  <section class="proof">
+    <div class="shell">
+      <p class="eyebrow">What you actually see</p>
+      <h2 class="section-head">Numbers, and what they mean. In words.</h2>
+      <p class="section-note">
+        Colour is never the only signal. Every state also says what it means in
+        plain language, so nothing depends on your being able to tell rose from
+        red.
+      </p>
+
+      <figure class="strip">
+        <img src="./img/card-left.png" alt="Shopping. $135 of $180. $45 left this month. 4 transactions, 2 days remaining." width="1560" height="448">
+        <figcaption>
+          <b>Budgets</b>
+          What&rsquo;s left, not what you&rsquo;ve already spent. The number you
+          can still do something with.
+        </figcaption>
+      </figure>
+
+      <figure class="strip">
+        <img src="./img/card-savings.png" alt="Savings. $350 of $350. $0 remaining. 1 transaction, 2 days remaining." width="1560" height="448">
+        <figcaption>
+          <b>The month it works</b>
+          Savings funded in full. Lunira notes it and moves on, in the same
+          voice it uses when things go the other way.
+        </figcaption>
+      </figure>
+
+      <figure class="strip">
+        <img src="./img/card-goal.png" alt="Italy Trip. $900 of $2,500. 36% there. $1,600 to go." width="1560" height="548">
+        <figcaption>
+          <b>Goals</b>
+          How far along and how far to go &mdash; both, always. The distance is
+          never hidden to make the screen feel nicer.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── on-device ─────────────────────────────────────────── -->
+  <section class="shell trust">
+    <div class="trust-grid">
+      <img src="./img/mascot-calm.png" alt="" width="333" height="333">
+      <div>
+        <p class="eyebrow">Privacy</p>
+        <h2 class="section-head">Nothing leaves your phone.</h2>
+        <p>
+          Lunira has no backend. No account, no sign-in, no sync, no analytics,
+          no ads, no trackers. Your name, your income, your spending and your
+          goals are written to your iPhone&rsquo;s local storage and stay there.
+        </p>
+        <p>
+          Which cuts both ways, so it&rsquo;s worth saying plainly: we can&rsquo;t
+          read your data, and we can&rsquo;t get it back for you. Deleting the app
+          deletes everything.
+          <a href="./privacy/">Read the privacy policy</a>.
+        </p>
+      </div>
+    </div>
+  </section>
 
 </main>
+
+<footer class="foot">
+  <div class="shell foot-row">
+    <p>Lunira &middot; a calmer way to manage your money</p>
+    <p class="foot-links">
+      <a href="./privacy/">Privacy Policy</a>
+      <a href="./terms/">Terms of Use</a>
+      <a href="mailto:zhulikov.support@gmail.com">Support</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // One orchestrated moment: the shout lands, then the calm answer arrives.
+  (function () {
+    var targets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
 </body>
 </html>
