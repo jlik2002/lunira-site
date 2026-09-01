@@ -158,21 +158,25 @@ a { color: var(--rose); }
   font-size: clamp(2.6rem, 7.5vw, 4.6rem);
 }
 
-.statement .amount {
+/* Money is always mono, wherever a figure appears. */
+.figure {
   font-family: var(--mono);
   font-weight: 500;
-  font-size: 0.86em;
+  font-size: 0.88em;
   letter-spacing: -0.03em;
   color: var(--rose);
 }
 
+/* The second beat of the headline. The size drop is the joke: the loud
+   claim is set loud, and the answer to it is set quiet. */
 .statement .quiet {
   display: block;
   font-weight: 400;
   font-variation-settings: "SOFT" 90, "WONK" 0;
-  color: var(--ink-70);
-  font-size: 0.74em;
-  margin-top: 0.15em;
+  color: var(--ink-45);
+  font-size: 0.44em;
+  letter-spacing: -0.01em;
+  margin-top: 0.6em;
 }
 
 .lede {
