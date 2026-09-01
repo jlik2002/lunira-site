@@ -158,6 +158,8 @@ a { color: var(--rose); }
   font-size: clamp(2.6rem, 7.5vw, 4.6rem);
 }
 
+.statement .loud { display: block; }
+
 /* Money is always mono, wherever a figure appears. */
 .figure {
   font-family: var(--mono);
@@ -219,15 +221,20 @@ a { color: var(--rose); }
   width: min(100%, 320px);
   margin: 0 auto;
   filter: drop-shadow(0 24px 40px rgba(171, 76, 93, 0.16));
+  position: relative;
+  z-index: 1;
 }
 
-/* a soft halo, so the mascot sits on something */
+/* a soft halo, so the mascot sits on something.
+   stacked with z-index 0/1 rather than -1, because the entrance animation
+   gives .hero-figure a transform and a negative z-index child would then be
+   trapped in the new stacking context. */
 .hero-figure::before {
   content: "";
   position: absolute;
   inset: 12% 8% 6%;
   background: radial-gradient(circle at 50% 45%, var(--shell), transparent 68%);
-  z-index: -1;
+  z-index: 0;
 }
 
 .badge {
@@ -381,25 +388,7 @@ a { color: var(--rose); }
 
 .voice-after strong { color: var(--ink); font-weight: 700; }
 
-/* the beat: the calm answer arrives after the shout */
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-}
-
-.reveal.is-in {
-  animation: rise 0.65s cubic-bezier(0.22, 0.68, 0.24, 1) forwards;
-}
-
-.reveal.is-in.delay { animation-delay: 0.28s; }
-
-@keyframes rise {
-  to { opacity: 1; transform: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
-}
+/* the two panels arrive differently — see the motion section below */
 
 /* ── the real thing ─────────────────────────────────────────── */
 
@@ -532,6 +521,79 @@ a { color: var(--rose); }
   font-size: 1.16rem;
   line-height: 1.45;
   color: var(--ink);
+}
+
+/* ═══ motion ═══════════════════════════════════════════════════
+   The product refuses to raise its voice, so the motion doesn't
+   either: long durations, soft easing, no bounce, no overshoot,
+   nothing that pulls at you. The CTA in particular never pulses
+   or wiggles — an app about not nagging you shouldn't nag.
+
+   There is exactly one deliberate exception, and it is the point
+   of the page: in the comparison, the loud panel snaps in hard
+   while the calm one settles slowly after it. The two easings are
+   the argument.
+   ══════════════════════════════════════════════════════════════ */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* abrupt, with a small overshoot — this is what "shouting" looks like */
+@keyframes snap {
+  0%   { opacity: 0; transform: translateY(-7px) scale(0.985); }
+  55%  { opacity: 1; transform: translateY(3px) scale(1.008); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* slow, no overshoot, arrives and stays put */
+@keyframes settle {
+  from { opacity: 0; transform: translateY(26px) scale(0.99); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* the companion is alive, not animated: 7s, 9px, barely there */
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+
+.on-load {
+  animation: rise 0.75s cubic-bezier(0.22, 0.68, 0.24, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+.on-view { opacity: 0; }
+
+.on-view.is-in {
+  animation: rise 0.75s cubic-bezier(0.22, 0.68, 0.24, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+.hero-figure img { animation: breathe 7s ease-in-out infinite; }
+
+/* the signature beat. three classes, so these win over .on-view.is-in */
+.voice--loud.on-view.is-in {
+  animation: snap 0.38s cubic-bezier(0.2, 0.9, 0.35, 1) both;
+}
+
+.voice--calm.on-view.is-in {
+  animation: settle 1s cubic-bezier(0.22, 0.68, 0.24, 1) 0.45s both;
+}
+
+/* the whole page holds still for anyone who asked it to */
+@media (prefers-reduced-motion: reduce) {
+  .on-load,
+  .on-view,
+  .on-view.is-in,
+  .voice--loud.on-view.is-in,
+  .voice--calm.on-view.is-in,
+  .hero-figure img {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ── responsive ─────────────────────────────────────────────── */

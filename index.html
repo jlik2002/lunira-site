@@ -18,6 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Karla:wght@400;600;800&display=swap">
 <link rel="stylesheet" href="./style.css">
+<!-- Scroll reveals start hidden and are un-hidden by script. With no script,
+     un-hide them up front rather than leaving the page blank below the hero. -->
+<noscript><style>.on-view { opacity: 1 !important; }</style></noscript>
 </head>
 <body>
 
@@ -37,20 +40,20 @@
   <!-- ── hero ──────────────────────────────────────────────── -->
   <section class="shell hero">
     <div>
-      <p class="badge">Coming soon to iPhone</p>
+      <p class="badge on-load" style="--d: .05s">Coming soon to iPhone</p>
 
       <h1 class="statement">
-        Money apps love to raise their voice.
-        <span class="quiet">This one doesn&rsquo;t.</span>
+        <span class="loud on-load" style="--d: .15s">Money apps love to raise their voice.</span>
+        <span class="quiet on-load" style="--d: .58s">This one doesn&rsquo;t.</span>
       </h1>
 
-      <p class="lede">
+      <p class="lede on-load" style="--d: .72s">
         Lunira is a budgeting app for iPhone. It tells you where you stand in
         plain words &mdash; no exclamation marks, no streak to break, no lecture
         at the end of the month &mdash; and then it stops talking.
       </p>
 
-      <div class="cta-row">
+      <div class="cta-row on-load" style="--d: .84s">
         <!-- Placeholder link. Swap for the real App Store product URL at launch,
              and replace this button with Apple's official badge — Apple's
              marketing guidelines require it once the app is listed. -->
@@ -61,25 +64,27 @@
       </div>
     </div>
 
-    <div class="hero-figure">
+    <div class="hero-figure on-load" style="--d: .3s">
       <img src="./img/mascot-hero.png" alt="Lunira, a small round companion with pink cheeks" width="480" height="480">
     </div>
   </section>
 
   <!-- ── the signature: one fact, two voices ───────────────── -->
   <section class="shell voices">
-    <p class="eyebrow">The difference</p>
-    <h2 class="section-head">
-      The same <span class="figure">$90</span>, said two ways.
-    </h2>
-    <p class="section-note">
-      One number, one month, one category over plan. The difference is entirely
-      in how it gets said to you &mdash; and that difference is the product.
-    </p>
+    <div class="on-view">
+      <p class="eyebrow">The difference</p>
+      <h2 class="section-head">
+        The same <span class="figure">$90</span>, said two ways.
+      </h2>
+      <p class="section-note">
+        One number, one month, one category over plan. The difference is entirely
+        in how it gets said to you &mdash; and that difference is the product.
+      </p>
+    </div>
 
     <div class="voices-grid">
 
-      <div class="voice voice--loud reveal">
+      <div class="voice voice--loud on-view">
         <p class="voice-label">Every other budgeting app</p>
         <p class="voice-shout">You overspent by $90</p>
         <p class="voice-scold">
@@ -89,7 +94,7 @@
         <span class="voice-streak">12-day streak lost</span>
       </div>
 
-      <div class="voice voice--calm reveal delay">
+      <div class="voice voice--calm on-view">
         <p class="voice-label">Lunira</p>
         <div class="voice-card">
           <img src="./img/card-over.png" alt="Dining Out. $340 of $250. $90 over plan. 9 transactions, 2 days remaining." width="1560" height="448">
@@ -107,15 +112,17 @@
   <!-- ── proof ─────────────────────────────────────────────── -->
   <section class="proof">
     <div class="shell">
-      <p class="eyebrow">What you actually see</p>
-      <h2 class="section-head">Numbers, and what they mean. In words.</h2>
-      <p class="section-note">
-        Colour is never the only signal. Every state also says what it means in
-        plain language, so nothing depends on your being able to tell rose from
-        red.
-      </p>
+      <div class="on-view">
+        <p class="eyebrow">What you actually see</p>
+        <h2 class="section-head">Numbers, and what they mean. In words.</h2>
+        <p class="section-note">
+          Colour is never the only signal. Every state also says what it means in
+          plain language, so nothing depends on your being able to tell rose from
+          red.
+        </p>
+      </div>
 
-      <figure class="strip">
+      <figure class="strip on-view">
         <img src="./img/card-left.png" alt="Shopping. $135 of $180. $45 left this month. 4 transactions, 2 days remaining." width="1560" height="448">
         <figcaption>
           <b>Budgets</b>
@@ -124,7 +131,7 @@
         </figcaption>
       </figure>
 
-      <figure class="strip">
+      <figure class="strip on-view" style="--d: .08s">
         <img src="./img/card-savings.png" alt="Savings. $350 of $350. $0 remaining. 1 transaction, 2 days remaining." width="1560" height="448">
         <figcaption>
           <b>The month it works</b>
@@ -133,7 +140,7 @@
         </figcaption>
       </figure>
 
-      <figure class="strip">
+      <figure class="strip on-view" style="--d: .16s">
         <img src="./img/card-goal.png" alt="Italy Trip. $900 of $2,500. 36% there. $1,600 to go." width="1560" height="548">
         <figcaption>
           <b>Goals</b>
@@ -146,7 +153,7 @@
 
   <!-- ── on-device ─────────────────────────────────────────── -->
   <section class="shell trust">
-    <div class="trust-grid">
+    <div class="trust-grid on-view">
       <img src="./img/mascot-calm.png" alt="" width="333" height="333">
       <div>
         <p class="eyebrow">Privacy</p>
@@ -180,14 +187,21 @@
 </footer>
 
 <script>
-  // One orchestrated moment: the shout lands, then the calm answer arrives.
+  // Scroll reveals. The hero animates from CSS alone, so it still plays with
+  // JavaScript off; everything below the fold waits to be seen.
   (function () {
-    var targets = document.querySelectorAll('.reveal');
+    var targets = document.querySelectorAll('.on-view');
+
+    function showAll() {
+      for (var i = 0; i < targets.length; i++) targets[i].classList.add('is-in');
+    }
+
     if (!('IntersectionObserver' in window) ||
         window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      targets.forEach(function (el) { el.classList.add('is-in'); });
+      showAll();
       return;
     }
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -195,8 +209,9 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.25 });
-    targets.forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+    for (var i = 0; i < targets.length; i++) io.observe(targets[i]);
   })();
 </script>
 

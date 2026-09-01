@@ -46,7 +46,23 @@ purpose — the app is light-only too, and a dark blush reads as mud.
 `assets/mascot/`, and four component renders from `content/cards/`, which the
 app generates from its actual components with sample money.
 
-**The one risk on the page** is the "same $90, said two ways" section. The
-left-hand panel is deliberately ugly — cold grey, alarm red, shouting caps —
-because the contrast with the right-hand panel *is* the product argument. If
-you soften it, the section stops making its point.
+**Motion** follows the same rule the product does: it doesn't raise its voice.
+Long durations, soft easing, no bounce, no overshoot, and nothing that pulses
+for attention — the CTA deliberately stays still, because an app about not
+nagging shouldn't nag. The hero plays a load sequence in which the quiet second
+line arrives late, as an answer. The mascot breathes on a 7-second cycle.
+Everything below the fold reveals on scroll.
+
+The hero animates from CSS alone so it survives with JavaScript off; scroll
+reveals need the script, and a `<noscript>` block un-hides them when there
+isn't one. `prefers-reduced-motion` disables all of it.
+
+**The two risks on the page**, both deliberate:
+
+1. The "same $90, said two ways" section. The left-hand panel is *meant* to be
+   ugly — cold grey, alarm red, shouting caps. The contrast with the right-hand
+   panel is the product argument; soften it and the section stops working.
+2. Those two panels animate with opposite easings. The loud one snaps in hard
+   with an overshoot; the calm one settles slowly, 0.45s later, with none. It
+   is the only place on the site where motion is allowed to be abrupt, and
+   that's the point — matching them would flatten the argument.
